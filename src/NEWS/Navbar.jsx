@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import myLogo from '../assets/mylogo.jpeg'; 
 
 function Navbar({ onCategoryChange, onSearch }) {
   const [activeCategory, setActiveCategory] = useState("general");

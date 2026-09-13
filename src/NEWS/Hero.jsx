@@ -10,10 +10,8 @@ function Hero() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        // Updated URL to Render live backend
-        const res = await axios.get("https://news-app-backend-6w9b.onrender.com/api/newslist", {
-          withCredentials: true,
-        });
+        // Direct GET request without credentials for Render cross-origin
+        const res = await axios.get("https://news-app-backend-6w9b.onrender.com/api/newslist");
 
         if (Array.isArray(res.data) && res.data.length > 0) {
           setNews(res.data);
@@ -24,7 +22,7 @@ function Hero() {
         console.error("News API Error:", err);
         setError("Failed to connect to news server.");
       } finally {
-        setLoading(false); // Ye guarantee karega ki loading screen zarur hate
+        setLoading(false);
       }
     };
 

@@ -1,0 +1,81 @@
+.hero-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Card Containers */
+.hero-left, .hero-middle, .hero-right {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #2e2e2e;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-left:hover, .hero-middle:hover, .hero-right:hover {
+  border-color: #e50914;
+  transform: translateY(-2px);
+}
+
+/* Image Handling (Fixes Stretching & Distortions) */
+.hero-left img, .hero-middle img, .hero-right img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.hero-left img {
+  height: 320px;
+}
+
+.hero-middle img, .hero-right img {
+  height: 180px;
+}
+
+/* Typography & Links */
+.hero-left h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #f1f1f1;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.hero-left h2:hover, .hero-middle p:hover, .hero-right p:hover {
+  color: #e50914;
+}
+
+.hero-middle p, .hero-right p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #ccc;
+  padding: 8px 0;
+  border-bottom: 1px solid #2a2a2a;
+  cursor: pointer;
+  margin: 0;
+}
+
+.hero-middle p:last-child, .hero-right p:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Grid for Mobile */
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-left img, .hero-middle img, .hero-right img {
+    height: 220px;
+  }
+}

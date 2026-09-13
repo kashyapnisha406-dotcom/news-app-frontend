@@ -7,10 +7,13 @@ function Hero() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  // Working fallback images in case DB image fails to load
+  const defaultMainImage = "https://images.unsplash.com/photo-1504711434969-e33886168f5c";
+  const defaultSubImage = "https://images.unsplash.com/photo-1495020689067-958852a7765e";
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        // Direct GET request without credentials for Render cross-origin
         const res = await axios.get("https://news-app-backend-6w9b.onrender.com/api/newslist");
 
         if (Array.isArray(res.data) && res.data.length > 0) {
@@ -37,11 +40,11 @@ function Hero() {
       {/* Top Row */}
       <div className="hero-left">
         <img
-          src={news[0]?.imageUrl || "https://via.placeholder.com/600x337"}
+          src={news[0]?.imageUrl || defaultMainImage}
           alt="main news"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "https://via.placeholder.com/600x337";
+            e.target.src = defaultMainImage;
           }}
         />
         <h2>{news[0]?.title || "Title Unavailable"}</h2>
@@ -49,11 +52,11 @@ function Hero() {
 
       <div className="hero-middle">
         <img
-          src={news[1]?.imageUrl || "https://via.placeholder.com/338x190"}
+          src={news[1]?.imageUrl || defaultSubImage}
           alt="middle news"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "https://via.placeholder.com/338x190";
+            e.target.src = defaultSubImage;
           }}
         />
         <p>{news[1]?.title}</p>
@@ -63,11 +66,11 @@ function Hero() {
 
       <div className="hero-right">
         <img
-          src={news[4]?.imageUrl || "https://via.placeholder.com/338x190"}
+          src={news[4]?.imageUrl || defaultSubImage}
           alt="right news"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "https://via.placeholder.com/338x190";
+            e.target.src = defaultSubImage;
           }}
         />
         <p>{news[4]?.title}</p>
@@ -78,11 +81,11 @@ function Hero() {
       {/* Bottom Row */}
       <div className="hero-left">
         <img
-          src={news[7]?.imageUrl || "https://via.placeholder.com/600x337"}
+          src={news[7]?.imageUrl || defaultMainImage}
           alt="main news 2"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "https://via.placeholder.com/600x337";
+            e.target.src = defaultMainImage;
           }}
         />
         <h2>{news[7]?.title}</h2>
@@ -90,11 +93,11 @@ function Hero() {
 
       <div className="hero-middle">
         <img
-          src={news[8]?.imageUrl || "https://via.placeholder.com/338x190"}
+          src={news[8]?.imageUrl || defaultSubImage}
           alt="middle news 2"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "https://via.placeholder.com/338x190";
+            e.target.src = defaultSubImage;
           }}
         />
         <p>{news[8]?.title}</p>
@@ -104,11 +107,11 @@ function Hero() {
 
       <div className="hero-right">
         <img
-          src={news[11]?.imageUrl || "https://via.placeholder.com/338x190"}
+          src={news[11]?.imageUrl || defaultSubImage}
           alt="right news 2"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "https://via.placeholder.com/338x190";
+            e.target.src = defaultSubImage;
           }}
         />
         <p>{news[11]?.title}</p>
